@@ -15,7 +15,7 @@ const routes = [
     path: "*",
     redirect: {
       path: "/",
-    },
+    }, 
   },
 ];
 export default routes;
