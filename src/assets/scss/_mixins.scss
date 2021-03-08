@@ -8,10 +8,39 @@
   flex-direction: $direction;
 }
 
+// flex-start
+@mixin flex-start($direction: row) {
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+}
+
 // flex-between
 @mixin flex-between($direction: row) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: $direction;
+}
+
+@mixin ellipsis-more($line: 2) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+}
+
+@mixin ellipsis-1() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
