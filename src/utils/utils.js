@@ -192,3 +192,88 @@ export function getDevice() {
   device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
   return device;
 }
+
+// 获取max与min之间的随机数
+export function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+/**
+ * 判断当前时间是否在一个时间段内
+ * @param {String} beginTime
+ * @param {String} endTime
+ */
+export function compareTime(beginTime, endTime) {
+  var strBegin = beginTime.split(":");
+  if (strBegin.length != 2) {
+    return false;
+  }
+
+  var strEnd = endTime.split(":");
+  if (strEnd.length != 2) {
+    return false;
+  }
+
+  var b = new Date(); // 开始时间
+  var e = new Date(); // 结束时间
+  var n = new Date(); // 当前时间
+  b.setHours(strBegin[0]);
+  b.setMinutes(strBegin[1]);
+  b.setSeconds(0);
+  e.setHours(strEnd[0]);
+  e.setMinutes(strEnd[1]);
+  e.setSeconds(0);
+
+  if (n.getTime() - b.getTime() > 0 && n.getTime() - e.getTime() < 0) { 
+    // 返回剩余时间
+    return e.getTime() - n.getTime();
+  } else {
+    // console.log("当前时间是：" + n.getHours() + ":" + n.getMinutes() + "，不在该时间范围内！")
+    return false;
+  }
+}
+
+// 补0函数 => 参数数字
+var toDB = nub => {
+  return nub < 10 ? "0" + nub : "" + nub
+}
+// 字符串日期 传入日期格式
+export function formateDate(d, type) {
+  let date = d ? d : new Date();
+  let year = date.getFullYear();
+  let month = toDB(date.getMonth() + 1);
+  let day = toDB(date.getDate());
+  let hours = toDB(date.getHours());
+  let minutes = toDB(date.getMinutes());
+  let seconds = toDB(date.getSeconds());
+  let connector = type ? type : '/';
+  return `${year}${connector}${month}${connector}${day}`
+}
+
+/**
+* 指定位数补零
+* @param num： 被操作数
+* @param n： 固定的总位数
+*/
+export function prefixZero(num, n) {
+  return (Array(n).join(0) + num).slice(-n);
+}
+
+//key(需要检索的键）
+export function getSearchString(key) {
+  var after = window.location.href;
+  if (after.indexOf("?") === -1) return null; //如果url中没有传参直接返回空
+
+  //key存在先通过search取值如果取不到就通过hash来取
+  after = window.location.search.substr(1) || window.location.hash.split("?")[1];
+
+  if (after) {
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+    var r = after.match(reg);
+    if (r != null) {
+      return decodeURIComponent(r[2]);
+    } else {
+      return null;
+    }
+  }
+}

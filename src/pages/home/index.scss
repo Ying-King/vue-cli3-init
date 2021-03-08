@@ -1,0 +1,246 @@
+.homePage {
+  box-sizing: border-box;
+  padding-bottom: 136px;
+  min-height: 100%;
+  background: #76b4fb;
+  color: #f6f0f1;
+
+  // 顶部
+  .headWrap {
+    width: 100%;
+    height: 910px;
+    background: url("#{$img}/headBg.png") no-repeat 50%;
+    background-size: 100% 100%;
+    // 按钮
+    .btnList {
+      padding-top: 139px;
+      width: 100%;
+      @include flex-between();
+      .ruleBtn1 {
+        width: 142px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 26px;
+        color: #fff;
+        background: linear-gradient(0deg, #206fda 0%, #5ea2f1 100%);
+        border-radius: 0 30px 30px 0;
+      }
+      .ruleBtn2 {
+        width: 142px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 26px;
+        color: #fff;
+        background: linear-gradient(0deg, #206fda 0%, #5ea2f1 100%);
+        border-radius: 30px 0 0 30px;
+      }
+    }
+  }
+
+  // 竞猜区域
+  .guessWrap {
+    position: relative;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 170px;
+    width: 715px;
+    height: 720px;
+    background: url("#{$img}/guessBg.png") no-repeat 50%;
+    background-size: 100% 100%;
+    .guessTime {
+      position: absolute;
+      left: 0;
+      top: 52px;
+      width: 100%;
+      font-size: 22px;
+      color: #fff;
+      text-align: center;
+    }
+    .inner {
+      > h2 {
+        text-align: center;
+        color: #571a05;
+        font-size: 38px;
+        font-weight: 500;
+      }
+      > p {
+        text-align: center;
+        margin-top: 23px;
+        font-size: 22px;
+        color: #adadad;
+      }
+      .guessBtns {
+        position: relative;
+        margin: 22px auto 0;
+        width: 619px;
+        height: 373px;
+        background: url("#{$img}/guessBtns.png") no-repeat 50%;
+        background-size: 100% 100%;
+        .riseBtn {
+          position: absolute;
+          left: 72px;
+          top: 156px;
+          box-sizing: border-box;
+          width: 149px;
+          height: 61px;
+          line-height: 61px;
+          text-align: center;
+          font-size: 36px;
+          font-weight: bold;
+          color: #d54d39;
+          background: linear-gradient(174deg, #fdfdee 2%, #fad5b6 100%);
+          box-shadow: 2px 1px 10px 0px rgba(207, 64, 33, 0.75);
+          border-radius: 30px;
+          span {
+            font-size: 24px;
+          }
+        }
+        .fallBtn {
+          position: absolute;
+          right: 82px;
+          top: 100px;
+          box-sizing: border-box;
+          width: 149px;
+          height: 61px;
+          line-height: 61px;
+          text-align: center;
+          font-size: 36px;
+          font-weight: bold;
+          color: #155dc3;
+          background: linear-gradient(174deg, #eef7fd 2%, #b6e5fa 100%);
+          box-shadow: 1px 1px 2px 0px rgba(36, 104, 185, 0.51);
+          border-radius: 30px;
+          span {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  // 邀请区域
+  .inviteWrap {
+    box-sizing: border-box;
+    margin: 43px auto 0;
+    width: 715px;
+    height: 604px;
+    padding: 94px 65px 0;
+    background: url("#{$img}/inviteBg.png") no-repeat 50%;
+    background-size: 100% 100%;
+    @include flex-start(column);
+    .inviteBtn {
+      box-sizing: border-box;
+      width: 556px;
+      height: 76px;
+      line-height: 76px;
+      color: #571a05;
+      font-size: 32px;
+      font-weight: 500;
+      text-align: center;
+      background: linear-gradient(180deg, #ffdc85, #ffba35);
+      box-shadow: 1px 1px 10px 0px rgba(198, 218, 241, 0.94),
+        0px -1px 10px 0px #feb155;
+      border-radius: 38px;
+    }
+    .moneyList {
+      width: 100%;
+      @include flex-start();
+      .money {
+        margin-right: 48px;
+        position: relative;
+        box-sizing: border-box;
+        width: 80px;
+        height: 47px;
+        line-height: 44px;
+        text-align: center;
+        border: 2px solid #929393;
+        font-size: 22px;
+        color: #8a8a8a;
+        border-radius: 15px;
+        &:last-of-type {
+          margin-right: 0;
+          &::after {
+            display: none;
+          }
+        }
+        &::after {
+          position: absolute;
+          right: -50px;
+          top: 50%;
+          margin-top: -1px;
+          content: "";
+          display: block;
+          width: 48px;
+          height: 2px;
+          background: #929393;
+        }
+      }
+    }
+    .peopleList {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 0 15px;
+      @include flex-start();
+      .dot {
+        position: relative;
+        margin-right: 112px;
+        box-sizing: border-box;
+        width: 22px;
+        height: 22px;
+        background: #D5ECFC;
+        border: 6px solid #73ABED;
+        border-radius: 50%;
+        // &:last-of-type {
+        //   margin-right: 0;
+        //   &::after {
+        //     display: none;
+        //   }
+        // }
+        &::after {
+          position: absolute;
+          right: -118px;
+          top: 50%;
+          transform: translateY(-50%);
+          content: "";
+          display: block;
+          width: 112px;
+          height: 7px;
+          background: #D5ECFC;
+          border-radius: 3px;          
+        }
+      }
+      .people {
+        color: #8a8a8a;
+        font-size: 22px;
+      }
+    }
+  }
+
+  // 连胜区域
+  .streakWrap {
+    margin: 43px auto 0;
+    width: 715px;
+    height: 457px;
+    background: url("#{$img}/streakBg.png") no-repeat 50%;
+    background-size: 100% 100%;
+  }
+
+  // 排行榜
+  .rankWrap {
+    margin: 43px auto 0;
+    width: 715px;
+    height: 614px;
+    background: url("#{$img}/homeRank.png") no-repeat 50%;
+    background-size: 100% 100%;
+  }
+
+  .line {
+    margin-top: 39px;
+    width: 100%;
+    height: 3px;
+    background: url("#{$img}/line.png") no-repeat 50%;
+    background-size: 100% 100%;
+  }
+}
